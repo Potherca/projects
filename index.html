@@ -81,6 +81,25 @@
         position: absolute;
         bottom: 0;
     }
+
+    section aside p {
+        color: var(--color-text-secondary);
+    }
+
+    section aside p:has(small > a) {
+        text-align: center;
+    }
+
+    section aside p a[href] {
+        display: block;
+        font-weight: normal;
+        line-height: 1;
+        overflow-wrap: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    section aside p sup:first-of-type {margin-left: 0;}
 </style>
 
 <header>
