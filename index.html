@@ -27,4 +27,80 @@
 </main>
 
 <script>
+    const stages = {
+        'Concept': ['Concept', 'red'],
+        'Research': ['Research', 'orange'],
+        'Experimental': ['Experimental', 'yellow'],
+        'Development': ['Development', 'yellowgreen'],
+        'Production Ready': ['Production%20Ready', 'brightgreen'],
+        'DEPRECATED': ['20!%20DEPRECATED%20%20%20!', 'ff0000'],
+    }
+
+    const cycles = {
+        'idea': ['💭', 'just an idea'],
+        'seed': ['🌰', 'just started'],
+        'seedling': ['🌱', 'not continuously worked on'],
+        'mature': ['🌳', 'stable and actively maintained'],
+        'evergreen': ['🌲', 'continuously worked on'],
+        'abandoned': ['🪵🪓', 'has been abandoned'],
+    }
+
+    function createListHtml(projects) {
+        let content = ''
+
+        for (const project of projects) {
+            content += `<aside>`
+            content += `<h3>${project.title ?? 'untitled project'}</h3>`
+
+            if (project.image) {
+                content += `<img src="${project.image}" alt="logo">`
+            }
+
+            content += `<p>${project.description ?? ''}</p>`
+
+            if (project.slogan || project.url) {
+
+                content += `<p><small>`
+
+                if (project.slogan) {
+                    content += `<em>${project.slogan}</em>`
+                }
+
+                if (project.url) {
+                    content += `<a href="${project.url}">${project.url}</a>`
+                }
+
+                content += `</small></p>`
+            }
+
+            if (project.cycle || project.stage) {
+
+                content += `<p>`
+
+                if (project.cycle && cycles[project.cycle]) {
+                    content += `<span title="${cycles[project.cycle][1]}">${cycles[project.cycle][0]}</span>`
+                }
+
+                if (project.stage && stages[project.stage]) {
+                    // const imageSource = `https://img.shields.io/badge/Project%20stage-${stages[project.stage][0]}-${stages[project.stage][1]}`
+                    const imageSource = `https://img.shields.io/badge/-${stages[project.stage][0]}-${stages[project.stage][1]}.svg`
+                    content += `<img alt="Project stage: ${project.stage}" src="${imageSource}" />`
+                }
+
+                content += `</p>`
+            }
+
+            content += `</aside>`
+        }
+
+        return content
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('projects.json')
+            .then(response => response.ok ? response.json() : Promise.reject(response))
+            .then(list => list.sort(() => Math.random() - 0.5))
+            .then(createListHtml)
+            .then(html => document.querySelector('section').insertAdjacentHTML('beforeend', `${html}`))
+    })
 </script>
