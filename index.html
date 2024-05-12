@@ -36,12 +36,51 @@
         position: relative;
     }
 
+    section aside h3 {
+        margin: 0;
+        max-width: calc(100% - 5em);
+        text-align: center;
+    }
+
     section aside img[alt$="logo"] {
         border-radius: var(--border-radius);
         height: 5em;
         width: 5em;
     }
 
+    section aside p:nth-last-child(2) {
+        padding-bottom: 1.5em;
+    }
+
+    section aside p:last-of-type {
+        position: absolute;
+        bottom: 0;
+        left: 1.25em;
+    }
+
+    section aside p span {
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-bg-secondary);
+        background-color: var(--color-bg-secondary);
+        cursor: help;
+    }
+
+    section aside p img {
+        max-height: 1.5em;
+    }
+
+    section aside p span,
+    section aside p img {
+        display: inline-block;
+        margin-right: 0.5em;
+        vertical-align: middle;
+    }
+
+    section aside p:has(sup),
+    section aside p:has(img) {
+        position: absolute;
+        bottom: 0;
+    }
 </style>
 
 <header>
