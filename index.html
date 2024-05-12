@@ -9,12 +9,35 @@
 
 <style>
     body {
+        --width-card: 17.5em;
         background-color: var(--color-bg-secondary);
     }
 
     title {
         display: inline;
     }
+
+    section:has(aside) {
+        justify-content: var(--justify-normal);
+    }
+
+    section aside {
+        align-items: start;
+        background-color: var(--color-bg);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: fit-content;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    section aside img[alt$="logo"] {
+        border-radius: var(--border-radius);
+        height: 5em;
+        width: 5em;
+    }
+
 </style>
 
 <header>
