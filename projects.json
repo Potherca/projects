@@ -18,7 +18,7 @@
   {
     "title": "Badges for Project Stages",
     "description": "A collection of badges for project stages, to be used in project README files to indicate the current stage of the project.",
-    "image": "assets/cred.png",
+    "image": "./assets/cred.png",
     "cycle": "mature",
     "stage": "Production Ready",
     "url": "https://blog.pother.ca/project-stages/"
@@ -26,7 +26,7 @@
   {
     "title": "XML Diff",
     "description": "This web application will tell you the difference between two given XML files, regardless of node order. It also takes node attributes into account.",
-    "image": "assets/xml-diff.png",
+    "image": "./assets/xml-diff.png",
     "cycle": "mature",
     "stage": "Production Ready",
     "url": "https://xmldiff.glitch.me/",
