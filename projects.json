@@ -1,5 +1,131 @@
 [
   {
+    "title": "PHPHOOLIGANS",
+    "description": "Presentation format using provocative statements about development to spark an open discussion with the audience.",
+    "slogan": "Everybody knows code but the PHPHOOLIGANS know better!",
+    "image": "https://avatars.githubusercontent.com/u/5202499",
+    "cycle": "abandoned",
+    "stage": "Production Ready"
+  },
+  {
+    "title": "Playing Minecraft",
+    "description": "For relaxation, I play Minecraft on the Xbox. Survival mode \"hard\", no cheats. I do everything in one world with the seed \"Potherca\" (839716126).",
+    "slogan": "Streamed on Twitch for your entertainment",
+    "image": "https://cdn.simpleicons.org/minecraft/black/white",
+    "cycle": "evergreen",
+    "url": "https://www.twitch.tv/potherca"
+  },
+  {
+    "title": "Badges for Project Stages",
+    "description": "A collection of badges for project stages, to be used in project README files to indicate the current stage of the project.",
+    "image": "assets/cred.png",
+    "cycle": "mature",
+    "stage": "Production Ready",
+    "url": "https://blog.pother.ca/project-stages/"
+  },
+  {
+    "title": "XML Diff",
+    "description": "This web application will tell you the difference between two given XML files, regardless of node order. It also takes node attributes into account.",
+    "image": "assets/xml-diff.png",
+    "cycle": "mature",
+    "stage": "Production Ready",
+    "url": "https://xmldiff.glitch.me/",
+    "repo": "https://github.com/potherca-blog/XmlDiff/"
+  },
+  {
+    "title": "Favicon Generator Cloudflare Worker",
+    "description": "A Cloudflare Worker that generates SVGs that can be used as favicons for my experiments.",
+    "slogan":"",
+    "image": "https://favicon.pother.ca/",
+    "cycle":"mature",
+    "stage": "Production Ready",
+    "url": "https://bootcamp.uxdesign.cc/creating-a-logo-for-my-projects-d89d61cc5f6",
+    "repo": "https://gist.github.com/Potherca/569d8edc004bb71618dedf5da3c33bda/"
+  },
+  {
+    "title": "Pipeline Components",
+    "description": "Small and fast, constantly updated containers for Gitlab, GitHub and other CI/CD pipelines.",
+    "slogan": "More than 10 million pulls on Docker Hub!",
+    "image": "https://pipeline-components.dev/images/logo.svg",
+    "cycle":"evergreen",
+    "stage": "Production Ready",
+    "url": "https://pipeline-components.dev/",
+    "repo": ""
+  },
+  {
+    "title": "Gunk",
+    "description": "",
+    "slogan": "In a burrow at the bottom of the garden, underneath a pile of, rubbish lives Gunk. These are stories about her.",
+    "image": "https://cdn.cp.adobe.io/content/2/dcx/f59eb01a-b059-49d1-a6c7-d3672c849c0b/rendition/preview.jpg/version/0/format/jpg/dimension/width/size/500",
+    "cycle":"seedling",
+    "stage": "Development",
+    "url": "https://peachey-schoorl.com/Gunk/"
+  },
+  {
+    "title": "Parrots",
+    "description": "Simple web service that outputs what it has been given as input with a prefix added.",
+    "slogan": "Je bent zelf een website!",
+    "image": "https://raw.githubusercontent.com/Potherca/Parrots/main/parrots-logo-250.png",
+    "cycle":"mature",
+    "stage": "Production Ready",
+    "url": "https://je-bent-zelf-een.glitch.me/",
+    "repo": "https://github.com/Potherca/Parrots/tree/main"
+  },
+  {
+    "title": "PaDePoPeS<br>Package Dependency Popularity Per-Searchterm",
+    "description": "When given a searchterm, it will return a count of dependencies for the found packages, sorted by popularity",
+    "slogan": "Want to know which Packagist dependencies are most popular for a certain term?",
+    "cycle":"seedling",
+    "stage": "Development",
+    "url": "https://padepopes.glitch.me/",
+    "repo": "https://github.com/potherca-blog/package-dependency-popularity-per-searchterm/"
+  },
+  {
+    "title": "PHP TimeCop Example",
+    "description": "Examples demonstrating how PHP TimeCop works",
+    "image": "https://raw.githubusercontent.com/potherca-blog/php-timecop-example/master/logo-timecop.png",
+    "cycle":"seed",
+    "stage": "Production Ready",
+    "url": "https://php-timecop.glitch.me/",
+    "repo": "https://github.com/potherca-blog/php-timecop-example"
+  },
+  {
+    "title": "Blinds",
+    "description": "Chrome plugin to hide unwanted pins on Pinterest based on one or more provided words.",
+    "image": "https://abandoned.pother.ca/Pinterest-HidePins/Generic/Images/blinds-logo-400x400-transparent.png",
+    "cycle":"abandoned",
+    "stage": "Development",
+    "repo": "https://github.com/potherca-abandoned/Pinterest-HidePins?tab=readme-ov-file"
+  },
+  {
+    "title": "Liquid Linter CLI",
+    "description": "Wrapper for the NodeJS liquid-linter package, allowing it to be run from the command-line interface (CLI).",
+    "slogan": "Currently maintained by <a href=\"https://www.unicorn.global/\">Unicorn Global</a>",
+    "image": "https://raw.githubusercontent.com/UnicornGlobal/liquid-linter-cli/master/docs/logo.png",
+    "cycle":"abandoned",
+    "stage": "Production Ready",
+    "url": "https://www.npmjs.com/package/liquid-linter-cli"
+  },
+  {
+    "title": "\"Hello world\" cross-reference",
+    "description": "Comparison of all 'hello world' examples across various sources.",
+    "slogan": "A cross-reference of \"hello world\" collections.",
+    "cycle":"seedling",
+    "stage": "Experimental",
+    "url": "https://blog.pother.ca/hello-world-cross-reference/",
+    "repo": "https://github.com/potherca-blog/hello-world-cross-reference/"
+  },
+  {
+    "title": "Find Typos on GitHub",
+    "description": "Finding typos in the most popular github repositories made easy.",
+    "slogan": "Fill in your faborite typing mistake (typo) in the field below and press the buttin!",
+    "image": "https://i.giphy.com/Re4qpNSjQr8h1RoqYR.webp",
+    "cycle":"mature",
+    "stage": "experimental",
+    "url": "https://find-typos-on-github.glitch.me/",
+    "repo": "https://github.com/potherca-blog/github-find-typos"
+  },
+  {
     "title": "",
     "description": "",
     "slogan": "",
