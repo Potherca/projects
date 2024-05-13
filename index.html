@@ -6,6 +6,7 @@
 
 <link rel="shortcut icon" href="https://favicon-emoji.pother.ca/🗃" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.15.0/mvp.css">
+<link rel="stylesheet" href="https://gist.pother.ca/275bfea38794bb9ecce29c24488a70b9/loading-spinner.css" />
 
 <style>
     body {
@@ -134,6 +135,12 @@
     </section>
 </main>
 
+<dialog class="loading-spinner" role="status" aria-live="assertive" aria-valuetext="Loading…">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="loading-spinner__icon" viewBox="0 0 512 512">
+        <path d="m441 13 4 82A247 247 0 0 0 12 210c-1 7 5 14 12 14h49c6 0 11-4 12-9a176 176 0 0 1 317-57l-101-5c-7 0-13 5-13 12v47c0 7 5 12 12 12h200c7 0 12-5 12-12V12c0-7-5-12-12-12h-47c-7 0-12 6-12 13zM256 432c-61 0-115-31-146-78l102 5c7 0 12-5 12-12v-47c0-7-5-12-12-12H12c-7 0-12 5-12 12v200c0 7 5 12 12 12h47c7 0 13-6 12-13l-4-82a247 247 0 0 0 433-115c1-7-5-14-12-14h-49c-6 0-11 4-12 9-18 78-88 135-171 135z" />
+    </svg>
+</dialog>
+
 <script>
     const stages = {
         'Concept': ['Concept', 'red'],
@@ -210,10 +217,13 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.loading-spinner').showModal()
+
         fetch('projects.json')
             .then(response => response.ok ? response.json() : Promise.reject(response))
             .then(list => list.sort(() => Math.random() - 0.5))
             .then(createListHtml)
             .then(html => document.querySelector('section').insertAdjacentHTML('beforeend', `${html}`))
+            .finally(() => document.querySelector('.loading-spinner').close())
     })
 </script>
