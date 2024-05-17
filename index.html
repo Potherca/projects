@@ -164,7 +164,7 @@
         let content = ''
 
         for (const project of projects) {
-            content += `<aside class="${project.cycle??''}">`
+            content += `<aside class="${project.cycle??''} ${project.stage??''}">`
 
             content += `<h3>${project.title ?? 'untitled project'}</h3>`
 
