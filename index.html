@@ -143,21 +143,21 @@
 
 <script>
     const stages = {
-        'Concept': ['Concept', 'red'],
-        'Research': ['Research', 'orange'],
-        'Experimental': ['Experimental', 'yellow'],
-        'Development': ['Development', 'yellowgreen'],
-        'Production Ready': ['Production%20Ready', 'brightgreen'],
-        'DEPRECATED': ['20!%20DEPRECATED%20%20%20!', 'ff0000'],
+        "Concept": {path: 'Concept', color: 'red'},
+        "Research": {path: 'Research', color: 'orange'},
+        "Experimental": {path: 'Experimental', color: 'yellow'},
+        "Development": {path: 'Development', color: 'yellowgreen'},
+        "Production_Ready": {path: 'Production%20Ready', color: 'brightgreen'},
+        "DEPRECATED": {path: '20!%20DEPRECATED%20%20%20!', color: 'ff0000'}
     }
 
     const cycles = {
-        'idea': ['💭', 'just an idea'],
-        'seed': ['🌰', 'just started'],
-        'seedling': ['🌱', 'not continuously worked on'],
-        'mature': ['🌳', 'stable and actively maintained'],
-        'evergreen': ['🌲', 'continuously worked on'],
-        'abandoned': ['🪵🪓', 'has been abandoned'],
+        idea: {label: '💭', title: 'just an idea'},
+        seed: {label: '🌰', title: 'just started'},
+        seedling: {label: '🌱', title: 'not continuously worked on'},
+        mature: {label: '🌳', title: 'stable and actively maintained'},
+        evergreen: {label: '🌲', title: 'continuously worked on'},
+        abandoned: {label: '🪵🪓', title: 'has been abandoned'}
     }
 
     function createListHtml(projects) {
@@ -194,12 +194,12 @@
                 content += `<p>`
 
                 if (project.cycle && cycles[project.cycle]) {
-                    content += `<span title="${cycles[project.cycle][1]}">${cycles[project.cycle][0]}</span>`
+                    content += `<span title="${cycles[project.cycle].title}">${cycles[project.cycle].label}</span>`
                 }
 
                 if (project.stage && stages[project.stage]) {
                     // const imageSource = `https://img.shields.io/badge/Project%20stage-${stages[project.stage][0]}-${stages[project.stage][1]}`
-                    const imageSource = `https://img.shields.io/badge/-${stages[project.stage][0]}-${stages[project.stage][1]}.svg`
+                    const imageSource = `https://img.shields.io/badge/-${stages[project.stage].path}-${stages[project.stage].color}.svg`
                     content += `<img alt="Project stage: ${project.stage}" src="${imageSource}" />`
                 }
 
