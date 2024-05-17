@@ -124,10 +124,61 @@
     }
 
     section aside p sup:first-of-type {margin-left: 0;}
+
+    /* Filter Buttons */
+    header {
+        background: color-mix(in srgb, var(--color-bg-secondary) 100%, #0000 15%);
+        padding: 0;
+        position: sticky;
+        top: -4em;
+        z-index: 1;
+    }
+
+    header nav {
+        margin: 0;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav li {
+        margin: 0.35em;
+    }
+
+    header nav p {
+        width: fit-content;
+    }
+
+    header nav b {
+        --button-color: var(--color-accent);
+
+        background-color: var(--button-color);
+        border-color: var(--button-color);
+        color: white;
+        cursor: pointer;
+        margin: 0.1em;
+        padding: 0.1em;
+        text-shadow: 0 0 4px black,
+        0 0 3px black,
+        0 0 2px black,
+        0 0 1px black;
+    }
+
+    .Concept > * {--button-color: red}
+    .Research > * {--button-color: orange}
+    .Experimental > * {--button-color: yellow}
+    .Development > * {--button-color: yellowgreen}
+    .Production-Ready > * {--button-color: #6f0}
+    .DEPRECATED {display: none;}
 </style>
 
 <header>
     <h1><title>Projects by Potherca</title></h1>
+    <nav></nav>
 </header>
 
 <main>
@@ -216,7 +267,38 @@
         return content
     }
 
+    function createFilterHtml(filterSubjects) {
+        let html = '<p>Show / Hide:</p>'
+
+        Object.entries(filterSubjects).forEach(([name, filters]) => {
+            const filterList = Object.entries(filters).map(
+                ([name, filter]) => `<li><a data-js="filter" class="${name}" title="${name} ${filter.title ?? ''}"><b>${filter.label ?? name}</b></a></li>`,
+            ).join('')
+
+            html += `<ul class="${name}">${filterList}</ul>`
+        })
+
+        return html
+    }
+
+    function handleFilter(event) {
+
+        const target = event.currentTarget
+        const filter = target.title.split(' ').shift()
+
+        document.querySelectorAll(`main [class~="${filter}"]`).forEach(element => element.hidden = ! element.hidden)
+
+        const button = target.querySelector('b')
+        button.style.backgroundColor = button.style.backgroundColor ? '' : 'var(--color-shadow)'
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        const filterHtml = createFilterHtml({cycles, stages})
+
+        document.querySelector('header nav').insertAdjacentHTML('beforeend', filterHtml)
+
+        document.querySelectorAll('[data-js="filter"]').forEach(button => button.addEventListener('click', handleFilter))
+
         document.querySelector('.loading-spinner').showModal()
 
         fetch('projects.json')
@@ -224,6 +306,15 @@
             .then(list => list.sort(() => Math.random() - 0.5))
             .then(createListHtml)
             .then(html => document.querySelector('section').insertAdjacentHTML('beforeend', `${html}`))
-            .finally(() => document.querySelector('.loading-spinner').close())
+            .finally(() => {
+                [
+                    'Concept',
+                    'idea',
+                    'seed',
+                    'abandoned',
+                ].forEach(filter => document.querySelector(`[data-js="filter"][title^="${filter}"]`).click())
+
+                document.querySelector('.loading-spinner').close()
+            })
     })
 </script>
